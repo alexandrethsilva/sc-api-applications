@@ -1,0 +1,107 @@
+{
+  "id": "Application",
+  "type": "array",
+  "minItems": 500,
+  "maxItems": 1000,
+  "items": {
+    "description": "A representation of client Credit Application",
+    "type": "object",
+    "required": [
+      "application_id",
+      "application_date",
+      "application_source",
+      "application_stage",
+      "application_amount",
+      "application_client"
+    ],
+    "properties": {
+      "application_id": {
+        "type": "string",
+        "faker": "random.uuid"
+      },
+      "application_date": {
+        "type": "string",
+        "faker": "date.recent"
+      },
+      "application_partner_id": {
+        "type": "string",
+        "enum": ["f1765bdd-12f9-4580-ab4d-b1491f11d50f","d16146e8-d6fe-487a-8fef-70f21743fce0","c8795078-ddc3-4c08-88cf-84b3141fd1ed","a3686c3e-2093-4b1c-8a79-97020b96f59f","f7da04d6-d89c-4370-8076-a6947e12fb40","19747f03-11db-4c2b-9345-4efcb458784e","2243aaa0-8314-4673-bfa9-1a7425d3cd3c","f7d2f579-32e1-4714-88e3-4ce6e74324ce","92c3208d-dea9-476d-8573-97ffc69d8ac0","1586a14c-d5bb-4d47-9452-ed649b2646bb","b79e3d16-8944-4384-80a4-b15bbfc55a9b","8ebf93d7-6ceb-4f7a-93e5-dbb78815f25b","ec4e4243-82da-4254-96a1-eddae384718f","85d816db-01c0-4218-9896-80c08cc81398","4bb8bf61-ee1d-4343-af8b-7a0fd19662b5","908b9fb4-6f9c-4021-a938-110a861167e8","bda00652-cd53-4b59-87c4-17e62353ea1d","5aeef7f9-efba-4d52-ad52-97354b23f986","0fff2741-d57e-4c58-bde4-55d6cb48ac16","76e82d02-49c1-4a5d-85dc-8c07a73331b4","4680ad92-b9ed-4a07-a35d-5e4beae91d5b","a753b8c0-15e7-4ba4-b4e6-ceb7d479c3cd","574d6fd5-cbfd-496f-ab7e-e43334fc9265","27343c9d-4704-4912-b2fb-c63a0db87226","247043f4-f23b-4b41-81f8-c37d501ea4a2","0f0ec316-e935-4da1-9799-334d504472c9","e6621043-0b13-4e9a-a50a-6eef17a4e804","beca2a89-9fc2-4289-9a5b-bd5916ba5ee5","11de7193-c016-4ad1-a860-980836f5ba8a","f2e8381f-ab46-4367-a848-7e4f4e16d3b9","46acb328-ac93-4f5e-8c8d-f82e4d6d8d4a","f90d852e-7167-4106-ae3f-5e5b34b065bf","e8c4ded4-ca33-4e9d-be32-90b6e1e3b821","8cbf0d4e-d495-4a7a-9d9c-09957a4d53bc","b04a347e-1404-4c8f-9982-d1b17616a2bd","5065ae4d-8ebc-4bde-a6ad-e9feeab1539e","43b838fb-3f09-4bb9-86b0-484fa652798e","7c47384d-0ea6-4ce8-92f6-91acc0b9bf85","1704597a-f5bc-4995-8e2e-72f28cc8a7aa","ab99fe8a-8e3d-46a7-8494-abac82339c6c","e30e5108-50cd-4977-88b8-35f11fa70a4b","19e20463-91f5-4104-bdb9-e8cd6d4bb30e","f0e76ca0-96f6-46dd-97ee-fef608895728","ee6d92e3-c0ff-4ce9-86fd-45e0e4ac5e1a","1edbe036-8b71-4e20-a55a-512cbcd59ae6","6439fac0-3060-4cc7-ab36-ad05cbb83ce0","854fc055-24b8-42df-913c-62b1fd82b4a2","e984c9af-a2ae-48fb-9dda-c193770a78a2","cdba25a0-02e1-465c-bc3d-5b53cefb6eb5","6a52eb49-47a3-4673-b191-8d1288280e70"]
+      },
+      "application_source": {
+        "type": "string",
+        "enum": [
+          "referral",
+          "partner"
+        ]
+      },
+      "application_stage": {
+        "type": "string",
+        "enum": [
+          "prequalified",
+          "rejected",
+          "approved",
+          "pending_documents",
+          "pending_statements"
+        ]
+      },
+      "application_amount": {
+        "type": "number",
+        "minimum": 20000,
+        "maximum": 250000,
+        "exclusiveMinimum": false,
+        "exclusiveMaximum": false
+      },
+      "application_client": {
+        "description": "A representation of a Spotcap Client",
+        "type": "object",
+        "required": [
+          "client_id",
+          "client_name_first",
+          "client_name_last",
+          "client_email",
+          "client_telephone",
+          "client_company"
+        ],
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "faker": "random.uuid"
+          },
+          "client_name_first": {
+            "type": "string",
+            "faker": "name.firstName"
+          },
+          "client_name_last": {
+            "type": "string",
+            "faker": "name.lastName"
+          },
+          "client_email": {
+            "type": "string",
+            "chance": {
+              "email": {
+                "domain": "spotcap-client.com"
+              }
+            }
+          },
+          "client_telephone": {
+            "type": "string",
+            "faker": "phone.phoneNumberFormat"
+          },
+          "client_company": {
+            "description": "The partner's company details",
+            "type": "object",
+            "properties": {
+              "partner_company_name": {
+                "type": "string",
+                "faker": "company.companyName"
+              }
+            },
+            "required": [
+              "partner_company_name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
