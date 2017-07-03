@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    container_name: "sc-applications-api"
+    build: .
+    command: yarn start
+    volumes:
+      - ./src:/src
+      - ./test:/test
+    environment:
+        - NODE_ENV=development
+        - CLIENT_HOST=client
+        - CLIENT_PORT=3000
+        - CLIENT_PROTOCOL=http
+        - DEBUG_PORT=5858
+    ports:
+      - "4001:80"
+      - "5001:5858"
+    network_mode: "webnet"

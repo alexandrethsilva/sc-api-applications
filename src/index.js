@@ -1,11 +1,12 @@
 const {send} = require("micro")
 const visualize = require("micro-visualize")
 const compress = require("micro-compress")
-const cookies = require("micro-cookie")
+
+const {CLIENT_HOST, CLIENT_PORT, CLIENT_PROTOCOL} = process.env
 
 const cors = require("micro-cors")({
   allowHeaders: ["Content-Type", "Authorization", "Accept"],
-  origin: "http://client:3000",
+  origin: `${CLIENT_PROTOCOL}://${CLIENT_HOST}:${CLIENT_PORT}`,
 })
 
 const {isNil} = require("ramda")

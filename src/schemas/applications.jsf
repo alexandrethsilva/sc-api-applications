@@ -55,27 +55,27 @@
         "description": "A representation of a Spotcap Client",
         "type": "object",
         "required": [
-          "client_id",
-          "client_name_first",
-          "client_name_last",
-          "client_email",
-          "client_telephone",
-          "client_company"
+          "application_client_id",
+          "application_client_name_first",
+          "application_client_name_last",
+          "application_client_email",
+          "application_client_telephone",
+          "application_client_company"
         ],
         "properties": {
-          "client_id": {
+          "application_client_id": {
             "type": "string",
             "faker": "random.uuid"
           },
-          "client_name_first": {
+          "application_client_name_first": {
             "type": "string",
             "faker": "name.firstName"
           },
-          "client_name_last": {
+          "application_client_name_last": {
             "type": "string",
             "faker": "name.lastName"
           },
-          "client_email": {
+          "application_client_email": {
             "type": "string",
             "chance": {
               "email": {
@@ -83,21 +83,21 @@
               }
             }
           },
-          "client_telephone": {
+          "application_client_telephone": {
             "type": "string",
             "faker": "phone.phoneNumberFormat"
           },
-          "client_company": {
+          "application_client_company": {
             "description": "The partner's company details",
             "type": "object",
             "properties": {
-              "partner_company_name": {
+              "application_client_company_name": {
                 "type": "string",
                 "faker": "company.companyName"
               }
             },
             "required": [
-              "partner_company_name"
+              "application_client_company_name"
             ]
           }
         }
