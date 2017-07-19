@@ -1,4 +1,4 @@
-version: "3"
+version: "2.1"
 
 services:
   web:
@@ -10,11 +10,12 @@ services:
       - ./test:/test
     environment:
         - NODE_ENV=development
-        - CLIENT_HOST=client
+        - CLIENT_HOST=app.spotcap.local
         - CLIENT_PORT=3000
         - CLIENT_PROTOCOL=http
         - DEBUG_PORT=5858
     ports:
       - "4001:80"
       - "5001:5858"
+    restart: on-failure
     network_mode: "webnet"

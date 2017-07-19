@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "fs-router": "0.4.0",
+    "isomorphic-fetch": "2.2.1",
     "json-loader": "0.5.4",
     "micro": "latest",
     "micro-auth": "0.8.7",
@@ -26,11 +27,30 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.19.1",
+    "eslint": "4.2.0",
+    "eslint-config-standard-pure-fp": "2.0.1",
+    "eslint-plugin-better": "0.1.5",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "3.0.1",
+    "eslint-plugin-xod-fp": "0.1.1",
     "faker": "4.1.0",
     "json-schema-faker": "0.5.0-rc8",
     "request-promise": "^4.2.0",
     "test-listen": "^1.0.2",
     "xo": "^0.18.1"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "better",
+      "fp",
+      "import",
+      "promise",
+      "standard",
+      "xod-fp"
+    ],
+    "extends": "standard-pure-fp"
   },
   "resolutions": {
     "ramda": "0.24.1",
@@ -61,7 +81,7 @@
     "qs": "6.4.0",
     "safe-buffer": "5.1.1",
     "uuid": "3.0.1",
-    "ajv": "5.2.0",
+    "ajv": "5.2.2",
     "assert-plus": "1.0.0",
     "mime-db": "1.27.0",
     "punycode": "1.4.1",
@@ -119,7 +139,28 @@
     "parse-ms": "1.0.1",
     "doctrine": "2.0.0",
     "depd": "1.1.0",
-    "nan": "2.6.2"
+    "nan": "2.6.2",
+    "eslint": "4.2.0",
+    "eslint-plugin-import": "2.7.0",
+    "iconv-lite": "0.4.18",
+    "ansi-regex": "3.0.0",
+    "js-yaml": "3.9.0",
+    "minimatch": "3.0.4",
+    "glob": "7.1.2",
+    "esprima": "4.0.0",
+    "espree": "3.4.3",
+    "ignore": "3.3.3",
+    "inquirer": "3.2.0",
+    "pluralize": "4.0.0",
+    "progress": "2.0.0",
+    "table": "4.0.1",
+    "ansi-escapes": "2.0.0",
+    "mute-stream": "0.0.7",
+    "run-async": "2.3.0",
+    "rx-lite": "4.0.8",
+    "req-all": "1.0.0",
+    "eslint-import-resolver-node": "0.3.1",
+    "eslint-module-utils": "2.1.1"
   },
   "private": true
 }
