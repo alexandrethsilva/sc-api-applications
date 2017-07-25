@@ -1,12 +1,13 @@
-const {resolve} = require("path")
-const {readFileSync} = require("fs")
-
 const {send} = require("micro")
-const session = require("../../session")
+const {session} = require("../../session")
+const {MESSAGE_DEFAULT_LOGGED_OUT} = require("../../constants")
 
 module.exports.GET = (request, response) => {
+  // eslint-disable-next-line fp/no-unused-expression
   session(request, response)
-  request.session = null
 
-  send(response, 200, {message: "Say bai to ya cookie!"})
+  // eslint-disable-next-line fp/no-delete
+  delete request.session
+
+  return send(response, 200, MESSAGE_DEFAULT_LOGGED_OUT)
 }

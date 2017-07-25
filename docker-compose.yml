@@ -2,16 +2,16 @@ version: "2.1"
 
 services:
   web:
-    container_name: "sc-applications-api"
+    container_name: "sc-api-applications"
     build: .
-    command: yarn start
+    command: pm2-docker ./src/process.json
     volumes:
       - ./src:/src
       - ./test:/test
     environment:
         - NODE_ENV=development
-        - CLIENT_HOST=app.spotcap.local
-        - CLIENT_PORT=3000
+        - CLIENT_HOST=app.spotcap.com
+        - CLIENT_PORT=80
         - CLIENT_PROTOCOL=http
         - DEBUG_PORT=5858
     ports:

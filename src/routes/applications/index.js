@@ -9,7 +9,7 @@ module.exports.GET = (req, res) => {
     "utf-8"
   )
 
-  applications
+  return applications
     ? send(res, 200, applications)
     : send(res, 500, "There was a problem making the request")
 }

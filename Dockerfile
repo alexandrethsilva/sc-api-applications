@@ -9,8 +9,11 @@ RUN apk add --update --no-cache python \
 
 WORKDIR /
 
+RUN yarn global add pm2
+
 COPY yarn.lock /yarn.lock
 COPY package.json /package.json
+COPY server.js /server.js
 
 RUN yarn install --flat
 

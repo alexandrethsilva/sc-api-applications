@@ -1,16 +1,14 @@
-// Packages
-const micro = require('micro')
-const test = require('ava')
-const listen = require('test-listen')
-const request = require('request-promise')
+/* eslint-disable fp/no-unused-expression */
+const test = require("ava")
+const listen = require("test-listen")
+const {microInstance, unauthorizedSessionRequest} = require("../test-utils")
+const {MESSAGE_DEFAULT_UNAUTHORIZED} = require("../src/constants")
 
-// Service
-const service = require('../src')
+test("Entry Endpoint", async t => {
+  const root = await listen(microInstance)
 
-test('my endpoint', async t => {
-  const microInstance = micro(service)
-  const url = await listen(microInstance)
-  const body = await request(url)
+  const actualResponse = await unauthorizedSessionRequest(`${root}`)
+  const expectedResponse = MESSAGE_DEFAULT_UNAUTHORIZED
 
-  t.deepEqual(body, 'Hello, world')
+  return t.deepEqual(expectedResponse, actualResponse)
 })

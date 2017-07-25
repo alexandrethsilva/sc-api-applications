@@ -1,7 +1,8 @@
+/* eslint-disable unicorn/filename-case */
 const {resolve} = require("path")
 const {readFileSync} = require("fs")
 
-const {compose, find, propEq} = require("ramda")
+const {compose, find, prop, propEq} = require("ramda")
 
 const {send} = require("micro")
 
@@ -14,11 +15,11 @@ module.exports.GET = (request, response) => {
     "utf-8"
   )
 
-  applications
+  return applications
     ? send(
-        response,
-        200,
-        getApplicationById(request.params.applicationId)(applications)
-      )
+      response,
+      200,
+      getApplicationById(prop("application-id", request.params))(applications)
+    )
     : send(response, 500, "There was a problem making the request")
 }

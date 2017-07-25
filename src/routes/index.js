@@ -1,5 +1,9 @@
 const {send} = require("micro")
 
-module.exports.GET = async ({method, url}, res) => {
-  if (method === "GET" && url === "/") send(res, 200, {healthy: true})
+// eslint-disable-next-line fp/no-nil
+module.exports.GET = async({method, url}, res) => {
+  // eslint-disable-next-line better/no-ifs
+  if (method === "GET" && url === "/") {
+    return send(res, 200, {healthy: true})
+  }
 }
