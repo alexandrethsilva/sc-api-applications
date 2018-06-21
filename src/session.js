@@ -3,7 +3,7 @@ const {SESSION_KEY, SESSION_SECRET} = require("./constants")
 
 const sessionConfig = {
   name: SESSION_KEY,
-  domain: "spotcap.com",
+  domain: "backend.api",
   httpOnly: true,
 }
 
