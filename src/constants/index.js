@@ -1,6 +1,6 @@
-module.exports.API_SCALA_ENDPOINT = "http://api.spotcap.com:8485"
+module.exports.API_SCALA_ENDPOINT = "http://backend.api:8485"
 
-module.exports.API_DEFAULT_DOMAIN = "api.spotcap.com"
+module.exports.API_DEFAULT_DOMAIN = "backend.api"
 
 module.exports.SESSION_KEY = "sc_applications_sid"
 module.exports.SESSION_SECRET = "ponytails"
