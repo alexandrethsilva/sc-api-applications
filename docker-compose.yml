@@ -10,7 +10,7 @@ services:
       - ./test:/test
     environment:
         - NODE_ENV=development
-        - CLIENT_HOST=app.spotcap.com
+        - CLIENT_HOST=app.frontend
         - CLIENT_PORT=80
         - CLIENT_PROTOCOL=http
         - DEBUG_PORT=5858
